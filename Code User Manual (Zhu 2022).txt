@@ -1,0 +1,59 @@
+Part A: MATLAB Secondary Analysis Test Codes & Dataset
+
+1. To begin with second-stage place cell & spatial engram analysis, you will need MATLAB (we used MATLAB 2021a) 
+installed on your local machine, with the following toolboxes installed:
+% Image processing
+% Optimization
+% Signal Processing
+% Statistics and Machine Learning
+% Curve Fitting
+% Parallel Computing
+% Mapping Toolbox
+
+2. After starting MATLAB, go to 'Engram_Analysis'-'matlab'-'utilties', and click on 'startup.m'. There are instructions
+in the code about setting up your computer. If successful the code will report machine name and the directory of codes.
+
+3. Next, go to 'userParameters' folder that shows up on the left panel of MATLAB interface, and then click on 'getdsap.m'.
+Go to section 2, and follow the instructions there to define directories & machine name.
+
+4. After all is setup, find 'Master_Function.m' and open the code file. Click on Secondary Analysis section (should be 
+highlighted after you click), and hit run section. If successful, the parallel pool on your machine should be activated,
+shown on the lower left of MATLAB interface. 
+
+5. When analysis is done, the output will be three MAT files within the 'Raw Data' folder: 'Data_Summary.mat' (contains
+all essential parameters like mobility, RM, and PV except for place cell data), 'Placeness_MetaData.mat' (contains place
+cell data), and 'XDay_Analysis.mat' (contains cross-day analysis data). 
+
+6. Note: the codes is only capable of running primary analysis (CNMFe cell detection) if and only if Inscopix Data Processing
+Software (IDPS v1.6) is installed on your local machine, and you have Ca-imaging recordings organized in a specific data structure.
+The raw recordings are ~6GB each, which is too large to include here. Please reach out if you want to investigate them.
+
+7. To visualize data, you need to modify functions within folder 'Graphing for Specific Dataset'. The codes are written for our complete
+dataset, so you will have to modify the codes to visualize data.
+
+8. We also provide the option to export data into excel tables for visualization in graphing softwares like Prism. Codes that can be 
+modified for this selected dataset are found withiin folder 'For_Prism_Graphing'.
+
+9. Please reach out if you need a completely analyzed summary in .MAT file (too big to include here, ~1.5GB)
+
+Part B: R-scripts & summarized data used for performing linear mixed effects model (LMEM)
+
+1. To perform statistical analyses, we transformed MAT file into excel files that summarize data in long-format. These files are located within
+folder 'Data for Statistical Tests'. They have the exact same numbers as in the MAT file.
+
+2. To begin, install R studio on your local machine. Then look for folder 'R-scripts' that contain the most essential LMEM we created for testing 
+statistics within the manuscript. Other parameters could be reproduced with slight modifications of the codes.
+
+3. Open 'initialize.R' and run the code. Install all packages when directed to do so.
+
+4. Open 'Mobility_LMEM.R' and modify the directory to import the excel data. Then simply run the codes to visualize the results in a summarized table 
+and plots. The data you should import with corresponding R scripts are:
+
+Mobility_LMEM.R ==> 'Mobility.xlsx'
+pMI_LMEM.R ==> 'MI_and_pMI.xlsx'
+RM_LMEM ==> 'RM_correlation.xlsx'
+PV_LMEM ==> 'PV_correlation.xlsx'
+
+5. Note: there might be slight p-value discrepancies between what we reported in manuscript & the output of R-script (no change in significance level
+or any statistical conclusions) because we recently re-run the dataset with more optimized parameters and it is done after the manuscript has been
+submitted. 
